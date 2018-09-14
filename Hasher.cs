@@ -13,7 +13,7 @@ namespace StringHasher
 
             using (var algo = new SHA1Managed())
             {
-                result = GenerateResult(algo, text);
+                result = GenerateHashString(algo, text);
             }
 
             return result;
@@ -25,7 +25,7 @@ namespace StringHasher
 
             using (var algo = new SHA256Managed())
             {
-                result = GenerateResult(algo, text);
+                result = GenerateHashString(algo, text);
             }
 
             return result;
@@ -37,7 +37,7 @@ namespace StringHasher
 
             using (var algo = new SHA384Managed())
             {
-                result = GenerateResult(algo, text);
+                result = GenerateHashString(algo, text);
             }
 
             return result;
@@ -49,7 +49,7 @@ namespace StringHasher
 
             using (var algo = new SHA512Managed())
             {
-                result = GenerateResult(algo, text);
+                result = GenerateHashString(algo, text);
             }
 
             return result;
@@ -61,13 +61,13 @@ namespace StringHasher
 
             using (var algo = new MD5CryptoServiceProvider())
             {
-                result = GenerateResult(algo, text);
+                result = GenerateHashString(algo, text);
             }
 
             return result;
         }
 
-        private static string GenerateResult(HashAlgorithm algo, string text)
+        private static string GenerateHashString(HashAlgorithm algo, string text)
         {
             // Compute hash from text parameter
             algo.ComputeHash(Encoding.UTF8.GetBytes(text));
